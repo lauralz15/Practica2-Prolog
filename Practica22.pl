@@ -25,7 +25,7 @@ cumple_presupuesto(Referencia, PresupuestoMax) :-
 vehiculos_por_marca(Marca, Referencias) :-
     bagof(Ref, vehiculo(Marca, Ref, _, _, _), Referencias).
 
-% Vehículos por tipo y fecha (agrupados)
+% Vehículos por tipo y fecha
 vehiculos_por_tipo_fecha(Tipo, Fecha, Referencias) :-
     bagof(Ref, vehiculo(_, Ref, Tipo, _, Fecha), Referencias).
 
@@ -71,4 +71,5 @@ ajustar_inventario([(Ref, Precio)|T], Limite, [(Ref, Precio)|Resultado]) :-
 ajustar_inventario([(_, Precio)|T], Limite, Resultado) :-
     Precio > Limite,
     ajustar_inventario(T, Limite, Resultado).  % Omitir vehículo caro pero continuar
+
 
