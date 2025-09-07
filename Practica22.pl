@@ -29,7 +29,7 @@ vehiculos_por_marca(Marca, Referencias) :-
 vehiculos_por_tipo_fecha(Tipo, Fecha, Referencias) :-
     bagof(Ref, vehiculo(_, Ref, Tipo, _, Fecha), Referencias).
 
-% Generar reporte con restricción de presupuesto (VERSIÓN MEJORADA)
+% Generar reporte con restricción de presupuesto 
 generar_reporte(Marca, Tipo, Presupuesto, Resultado, ValorFinal) :-
     % Encontrar todos los vehículos que cumplen
     findall((Ref, Precio),
@@ -71,3 +71,4 @@ ajustar_inventario([(Ref, Precio)|T], Limite, [(Ref, Precio)|Resultado]) :-
 ajustar_inventario([(_, Precio)|T], Limite, Resultado) :-
     Precio > Limite,
     ajustar_inventario(T, Limite, Resultado).  % Omitir vehículo caro pero continuar
+
